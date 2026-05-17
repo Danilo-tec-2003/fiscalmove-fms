@@ -1,0 +1,11 @@
+# Copie este arquivo para db.properties apenas em desenvolvimento local.
+db.url=jdbc:postgresql://localhost:5432/fiscalmove_fms
+db.user=postgres
+db.password=postgres
+db.driver=org.postgresql.Driver
+db.pool.min=2
+db.pool.max=10
+
+motor.fiscal.base.url=http://localhost:8081
+motor.fiscal.api.key=change-me
+motor.fiscal.timeout.ms=5000
