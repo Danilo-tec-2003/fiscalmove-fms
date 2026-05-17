@@ -95,6 +95,9 @@ Mais detalhes:
    http://localhost:8080/SISTEMA-FRETES
    ```
 
+Por padrao, o PostgreSQL do Compose fica exposto no host pela porta `5433`,
+evitando conflito com instalacoes locais que ja usam `5432`.
+
 Credenciais de demonstracao:
 
 | Perfil | Login | Senha |
