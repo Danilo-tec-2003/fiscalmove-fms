@@ -9,6 +9,7 @@ import br.com.fiscalmove.motorista.Motorista;
 import br.com.fiscalmove.motorista.MotoristaDAO;
 import br.com.fiscalmove.nucleo.exception.CadastroException;
 import br.com.fiscalmove.nucleo.exception.NegocioException;
+import br.com.fiscalmove.nucleo.login.Usuario;
 import br.com.fiscalmove.veiculos.Veiculo;
 import br.com.fiscalmove.veiculos.VeiculoDAO;
 import com.google.gson.Gson;
@@ -430,8 +431,13 @@ public class FreteControlador extends HttpServlet {
     private String getUsuarioLogado(HttpServletRequest req) {
         HttpSession session = req.getSession(false);
         if (session == null) return "sistema";
-        Object u = session.getAttribute("usuarioLogado");
-        return u != null ? u.toString() : "sistema";
+
+        Object usuario = session.getAttribute("usuarioLogado");
+        if (usuario instanceof Usuario) {
+            Usuario u = (Usuario) usuario;
+            return u.getNome() != null ? u.getNome() : u.getLogin();
+        }
+        return usuario != null ? String.valueOf(usuario) : "sistema";
     }
 
     /* ---- parsers ---- */

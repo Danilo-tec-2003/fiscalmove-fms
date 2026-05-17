@@ -41,7 +41,10 @@ public class Usuario implements Serializable {
     public void setSenha(String s)   { this.senha = s; }
     public void setAtivo(boolean a)  { this.ativo = a; }
 
-
-
-
+    @Override
+    public String toString() {
+        if (nome != null && !nome.trim().isEmpty()) return nome;
+        if (login != null && !login.trim().isEmpty()) return login;
+        return "usuario";
+    }
 }
